@@ -1,0 +1,28 @@
+#!/usr/bin/env python
+
+import matplotlib.pyplot as plt
+import sys
+
+input_file = open("/home/xiavan/Testing/lobstr-tools/fixlist.txt", "r")
+
+def freq_plotter(infile):
+    plotlist = []
+    for record in infile:
+        record = record.split("\t")
+        xlist = []
+        ylist = []
+        for value in record:
+            value = value.split(",")
+            xlist.append(int(value[0]))
+            ylist.append(int(value[1]))
+        plotlist.append([xlist,ylist])
+    for i,entry in enumerate(plotlist):
+        plt.plot(entry[0],entry[1],label="Sample %s"%(i))
+    plt.xlabel('Total Number of Reads')
+    plt.ylabel('Frequency')
+    plt.title("Frequency of Read Amounts in Repetitive Regions")
+    plt.grid(True)
+    plt.legend()
+    plt.show()
+    
+freq_plotter(input_file)

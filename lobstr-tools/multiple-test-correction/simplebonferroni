@@ -1,0 +1,39 @@
+#!/bin/env python
+
+#input is result file, gets len and outputs file with corrected pvals (pval*len)
+
+import sys
+
+infile = open(sys.argv[1], "r")
+testamount = int(sys.argv[2])
+#for line in infile:
+ #   print(line)
+
+
+#lc = sum(1 for line in infile)
+
+def bonferroni(input_file):
+    #corrected = []
+    #print(line_count)
+    for line in input_file:
+        outputlist = []
+        #print(line)
+        line = line.split("\t")
+        #line[5] = line[5]*testamount
+        #line[5] = line[5].rstrip("\n")
+        #line = "\t".join(line)
+        outputlist.append(line[0])
+        outputlist.append(line[1])
+        outputlist.append(line[2])
+        outputlist.append(line[3])
+        outputlist.append(line[4])
+        bf = line[5].rstrip()
+        fixed = float(bf)*int(testamount)
+        outputlist.append(fixed)
+        blah = "\t".join([outputlist[0],outputlist[1],outputlist[2],outputlist[3],outputlist[4],str(outputlist[5])])
+        print(blah)
+
+bonferroni(infile)
+
+#for line in infile:
+#    print(line)

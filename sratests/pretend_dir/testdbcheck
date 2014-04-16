@@ -1,0 +1,31 @@
+#for all entries in the array created by the metadb search, get run accession IDs 
+#and cross reference to a database, maybe called automateSRA.sqlite for now
+#create new array with duplicates removed.
+
+#first check if the database exists. if not, make it.
+
+if [ -e automateSRA.sqlite ]; then 
+	echo "Database of previous downloads found."
+else 
+	echo "Database of previous downloads not found. Creating database in current directory." 
+	printf "create table \"current_entries\"(\"run_accession\" \"char(9)\");" | sqlite3 automateSRA.sqlite
+fi
+
+my_array=(1 2 3 4 5 6 7 8)
+
+for arg in "${my_array[@]}"
+do
+function count_test {
+printf "select count(*)
+	from current_entries
+	where run_accession = \"%s\";" "$arg" |  sqlite3 automateSRA.sqlite
+}
+
+exists=( $(count_test) )
+echo $exists
+if [ $exists -eq 0 ]; then 
+	echo "Entry $arg DNE in database. You can download this."
+else
+	echo "Entry $arg exists in database. Remove this duplicate from array."
+fi
+done

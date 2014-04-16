@@ -1,0 +1,40 @@
+#!/usr/bin/env python
+
+import sys
+import pysam
+
+samples1 = [pysam.Samfile("/home/xiavan/Data/lobSTRdata/genomedata/ped_1/lgs100840/lgs100840_complete.bam", "rb"), pysam.Samfile("/home/xiavan/Data/lobSTRdata/genomedata/ped_1/lgs300788/lgs300788_complete.bam", "rb"), pysam.Samfile("/home/xiavan/Data/lobSTRdata/genomedata/ped_1/lgs300939/lgs300939_complete.bam", "rb"), pysam.Samfile("/home/xiavan/Data/lobSTRdata/genomedata/ped_1/lgs100101/lgs100101_complete.bam", "rb"), pysam.Samfile("/home/xiavan/Data/lobSTRdata/genomedata/ped_1/lgs100235/lgs100235_complete.bam", "rb"), pysam.Samfile("/home/xiavan/Data/lobSTRdata/genomedata/ped_1/lgs100317/lgs100317_complete.bam", "rb"), pysam.Samfile("/home/xiavan/Data/lobSTRdata/genomedata/ped_1/lgs300786/lgs300786_complete.bam", "rb"), pysam.Samfile("/home/xiavan/Data/lobSTRdata/genomedata/ped_1/lgs300940/lgs300940_complete.bam", "rb")]
+
+samples2 = [pysam.Samfile("/home/xiavan/Data/lobSTRdata/genomedata/ped_2/lgs102004/lgs102004_complete.bam", "rb"), pysam.Samfile("/home/xiavan/Data/lobSTRdata/genomedata/ped_2/lgs300782/lgs300782_complete.bam", "rb"), pysam.Samfile("/home/xiavan/Data/lobSTRdata/genomedata/ped_2/lgs300792/lgs300792_complete.bam", "rb"), pysam.Samfile("/home/xiavan/Data/lobSTRdata/genomedata/ped_2/lgs100797/lgs100797_complete.bam", "rb"), pysam.Samfile("/home/xiavan/Data/lobSTRdata/genomedata/ped_2/lgs100800/lgs100800_complete.bam", "rb"), pysam.Samfile("/home/xiavan/Data/lobSTRdata/genomedata/ped_2/lgs100837/lgs100837_complete.bam", "rb"), pysam.Samfile("/home/xiavan/Data/lobSTRdata/genomedata/ped_2/lgs100842/lgs100842_complete.bam", "rb"), pysam.Samfile("/home/xiavan/Data/lobSTRdata/genomedata/ped_2/lgs102066/lgs102066_complete.bam", "rb")]
+
+infile = open(sys.argv[1], "r")
+
+def printresults(afile):
+    for entry in afile:
+        entry = entry.split("\t")
+        print("\nLoci: ", entry[0], entry[1], entry[2])
+        print("\nPatient samples:\n")
+        getreads(entry[0], entry[1], entry[2], samples1)
+        print("\nControl samples:\n")
+        getreads(entry[0], entry[1], entry[2], samples2)
+def getreads(chrom, start, end, sample):
+    for i,infile in enumerate(sample):
+        print("\nReads for sample", i, ":\n")
+        for read in (infile.fetch(chrom, int(start), int(end))):
+            main_bam_fields=str(read).split("\t")
+            lobstr_bam_fields=str(main_bam_fields[11])
+            lobstr_bam_fields=lobstr_bam_fields.replace("[","").replace("]","").replace("(","").replace(")","").replace("'","").split(", ")
+            index_loci= start
+            str_start= lobstr_bam_fields[1]
+            str_end= lobstr_bam_fields[3]
+            length_bp= int(str_end) - int(str_start)
+            length_str = int(length_bp)/len(lobstr_bam_fields[5])
+            str_unit= lobstr_bam_fields[5]
+            str_sequence = lobstr_bam_fields[11]
+            #ideal=(getideal(str_unit,length_bp))
+            #purity=(getpurity(ideal, str_sequence))
+            #called_length.append(length_str)
+            info = [str_start, str_end, length_bp, length_str, str_unit, str_sequence]
+            print(info)
+
+printresults(infile)

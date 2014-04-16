@@ -1,0 +1,23 @@
+#this is a test of using getopts to make flags for optional arguments
+while getopts a:b:c:h flag; do
+  case $flag in
+    a)
+      PWD="`pwd`";
+      echo "Herro $OPTARG, your current working directory is $PWD"
+      ;;
+    b)
+      echo "-b used: $OPTARG";
+      ;;
+    c)
+      echo "-c used";
+      ;;
+    h)
+      printf "\nusage:\n\t-a takes an optional argument and prints it.\n\n";
+      ;;		
+    ?)
+      :;
+      ;;
+  esac
+done
+
+shift $(( OPTIND - 1 ));

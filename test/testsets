@@ -1,0 +1,6 @@
+#!/bin/python2
+
+import sets
+
+print "Enter values for a set"
+

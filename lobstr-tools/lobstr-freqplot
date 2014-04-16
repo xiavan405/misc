@@ -1,0 +1,36 @@
+#!/bin/env python
+
+import pysam
+import sys
+#import matplotlib.pyplot as plt
+from collections import defaultdict
+
+samples1 = [pysam.Samfile("/home/xiavan/Data/lobSTRdata/genomedata/ped_1/lgs100840/lgs100840_complete.bam", "rb"), pysam.Samfile("/home/xiavan/Data/lobSTRdata/genomedata/ped_1/lgs300788/lgs300788_complete.bam", "rb"), pysam.Samfile("/home/xiavan/Data/lobSTRdata/genomedata/ped_1/lgs300939/lgs300939_complete.bam", "rb"), pysam.Samfile("/home/xiavan/Data/lobSTRdata/genomedata/ped_1/lgs100101/lgs100101_complete.bam", "rb"), pysam.Samfile("/home/xiavan/Data/lobSTRdata/genomedata/ped_1/lgs100235/lgs100235_complete.bam", "rb"), pysam.Samfile("/home/xiavan/Data/lobSTRdata/genomedata/ped_1/lgs100317/lgs100317_complete.bam", "rb"), pysam.Samfile("/home/xiavan/Data/lobSTRdata/genomedata/ped_1/lgs300786/lgs300786_complete.bam", "rb"), pysam.Samfile("/home/xiavan/Data/lobSTRdata/genomedata/ped_1/lgs300940/lgs300940_complete.bam", "rb")]
+
+samples2 = [pysam.Samfile("/home/xiavan/Data/lobSTRdata/genomedata/ped_2/lgs102004/lgs102004_complete.bam", "rb"), pysam.Samfile("/home/xiavan/Data/lobSTRdata/genomedata/ped_2/lgs300782/lgs300782_complete.bam", "rb"), pysam.Samfile("/home/xiavan/Data/lobSTRdata/genomedata/ped_2/lgs300792/lgs300792_complete.bam", "rb"), pysam.Samfile("/home/xiavan/Data/lobSTRdata/genomedata/ped_2/lgs100797/lgs100797_complete.bam", "rb"), pysam.Samfile("/home/xiavan/Data/lobSTRdata/genomedata/ped_2/lgs100800/lgs100800_complete.bam", "rb"), pysam.Samfile("/home/xiavan/Data/lobSTRdata/genomedata/ped_2/lgs100837/lgs100837_complete.bam", "rb"), pysam.Samfile("/home/xiavan/Data/lobSTRdata/genomedata/ped_2/lgs100842/lgs100842_complete.bam", "rb"), pysam.Samfile("/home/xiavan/Data/lobSTRdata/genomedata/ped_2/lgs102066/lgs102066_complete.bam", "rb")]
+
+current_loci_list = open("/home/xiavan/Data/lobSTRdata/repeat_analysis/bonferroni_significant_p_sorted_2ndrunresults.txt", "r")
+
+#counts number of reads at each loci and records read count. matches and totals readcounts using the defaultdict to produce frequencies of readcounts.
+def countreads(number, sample, loci_list):
+    freqlist = []
+    for i,loci in enumerate(loci_list):
+        #print("Current loci", loci)
+        loci = loci.split("\t")
+        chrom = loci[0]
+        start = loci[1]
+        end = loci[2]
+        #for j,infile in enumerate(sample):
+        #    print("Current sample: ", j)
+        #    readcount = 0
+        readcount = 0
+        for read in sample[int(number)].fetch(chrom, int(start), int(end)):
+            readcount += 1
+        freqlist.append(readcount)
+    freqdict = defaultdict(int)
+    for entry in freqlist:
+        freqdict[entry] += 1
+    print(sample[int(number)])
+    print(freqdict.items())
+
+countreads(sys.argv[1], samples2, current_loci_list)

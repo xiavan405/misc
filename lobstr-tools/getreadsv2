@@ -1,0 +1,43 @@
+#!/bin/env python
+
+import pysam
+import sys
+
+samples1_path=open("/home/xiavan/Data/lobSTRdata/exomedata/unaffected_exome_test1.txt",'r')
+
+samples2_path=open("/home/xiavan/Data/lobSTRdata/exomedata/affected_exome_test1.txt",'r')
+
+def generate_samples(path):
+    samples_list=[]
+    for bam in path:
+        bam=bam.rstrip()
+        samples_list.append(pysam.Samfile(bam, "rb"))
+    return(samples_list)
+
+def get_reads(chrom, start, end, sample):
+    for i,infile in enumerate(sample):
+        print("\nReads for sample", i, ":\n")
+        for read in (infile.fetch(sys.argv[1], int(sys.argv[2]), int(sys.argv[3]))):
+            main_bam_fields=str(read).split("\t")
+            lobstr_bam_fields=str(main_bam_fields[11])
+            lobstr_bam_fields=lobstr_bam_fields.replace("[","").replace("]","").replace("(","").replace(")","").replace("'","").split(", ")
+            index_loci= start
+            str_start= lobstr_bam_fields[1]
+            str_end= lobstr_bam_fields[3]
+            length_bp= int(str_end) - int(str_start)
+            length_str = int(length_bp)/len(lobstr_bam_fields[5])
+            str_unit= lobstr_bam_fields[5]
+            str_sequence = lobstr_bam_fields[11]
+            #ideal=(getideal(str_unit,length_bp))
+            #purity=(getpurity(ideal, str_sequence))
+            #called_length.append(length_str)
+            info = [str_start, str_end, length_bp, length_str, str_unit, str_sequence]
+            print(info)
+
+samples1=generate_samples(samples1_path)
+samples2=generate_samples(samples2_path)
+
+print("\nGroup 1 :")
+get_reads(sys.argv[1], int(sys.argv[2]), int(sys.argv[3]), samples1)
+print("\nGroup 2 :")
+get_reads(sys.argv[1], int(sys.argv[2]), int(sys.argv[3]), samples2)

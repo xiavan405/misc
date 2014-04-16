@@ -1,0 +1,31 @@
+#!/bin/bash
+
+usage() {
+	cat <<EOF 1>&2
+USAGE: $0 [options] <input.bam>
+
+Options:
+	-p <index-prefix>
+EOF
+}
+
+indexPrefix=/home/xiavan/Tools/lobSTR/index_trf_hg19_extend1000/lobSTR_ 
+tmpdir=$(mktemp -d)
+trap "rm -rf $tmpdir" EXIT
+
+while getopts p: opt; do
+	case $opt in
+		p) indexPrefix=$OPTARG ;;
+		*) usage && exit 1 ;;
+	esac
+done
+shift $((OPTIND - 1))
+
+[ $# != 1 ] && {
+	usage
+	exit 1
+}
+
+mkfifo $tmpdir/out.aligned.bam
+lobSTR --bam -f $1 --index-prefix $indexPrefix -o $tmpdir/out &> /dev/null &
+samtools view - < $tmpdir/out.aligned.bam 

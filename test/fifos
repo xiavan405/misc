@@ -1,0 +1,13 @@
+#heres my test of using fifos
+
+mkfifo /tmp/test.fifo
+
+gzip -dc test.txt.gz > /tmp/test.fifo &
+
+cat >/tmp/test2.fifo & </tmp/test.fifo &
+
+cat >fifos.txt </tmp/test2.fifo &
+
+rm /tmp/test.fifo
+rm /tmp/test2.fifo
+exit 1

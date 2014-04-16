@@ -1,0 +1,28 @@
+#!/usr/bin/env python
+
+import pysam
+import sys
+import argparse
+
+'''
+For a loci: grab the hg19 reference, and directly grab the original sample bamfile (in walnut), information at that loci, and do the same for the other sample.
+'''
+
+parser=argparser.ArgumentParser()
+parser.add_argument('locus', nargs=3, help='reference location where read coverage will be examined. Format is chr<N>, <start-base-count> <end-base-count>.')
+parser.add_argument('-s', '--samples', nargs=2,required=True, help='Two text files of newline-delimited paths to lobstr-compare output, one for each group to be compared.')
+args=parser.parse_args()
+
+def generate_samples(sample_paths):
+    samples_list=[]
+    for bam in open(sample_paths,'r'):
+        bam=bam.rstrip()
+        samples_list.append(pysam.Samfile(bam,'rb'))
+    return(samples_list)
+
+sample1_paths=generate_samples(args.samples[0])
+sample2_paths=generate_samples(args.samples[1])
+
+def get_reads(chrom,start,end,sample):
+    for read in infile.fetch(chrom,start,end,sample):
+    

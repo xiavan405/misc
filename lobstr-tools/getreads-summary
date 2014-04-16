@@ -1,0 +1,21 @@
+#!/bin/env python
+
+import pysam
+import sys
+
+samples1 = [pysam.Samfile("/home/xiavan/Data/lobSTRdata/genomedata/ped_1/lgs100840/lgs100840_complete.bam", "rb"), pysam.Samfile("/home/xiavan/Data/lobSTRdata/genomedata/ped_1/lgs300788/lgs300788_complete.bam", "rb"), pysam.Samfile("/home/xiavan/Data/lobSTRdata/genomedata/ped_1/lgs300939/lgs300939_complete.bam", "rb"), pysam.Samfile("/home/xiavan/Data/lobSTRdata/genomedata/ped_1/lgs100101/lgs100101_complete.bam", "rb"), pysam.Samfile("/home/xiavan/Data/lobSTRdata/genomedata/ped_1/lgs100235/lgs100235_complete.bam", "rb"), pysam.Samfile("/home/xiavan/Data/lobSTRdata/genomedata/ped_1/lgs100317/lgs100317_complete.bam", "rb"), pysam.Samfile("/home/xiavan/Data/lobSTRdata/genomedata/ped_1/lgs300786/lgs300786_complete.bam", "rb"), pysam.Samfile("/home/xiavan/Data/lobSTRdata/genomedata/ped_1/lgs300940/lgs300940_complete.bam", "rb")]
+
+samples2 = [pysam.Samfile("/home/xiavan/Data/lobSTRdata/genomedata/ped_2/lgs102004/lgs102004_complete.bam", "rb"), pysam.Samfile("/home/xiavan/Data/lobSTRdata/genomedata/ped_2/lgs300782/lgs300782_complete.bam", "rb"), pysam.Samfile("/home/xiavan/Data/lobSTRdata/genomedata/ped_2/lgs300792/lgs300792_complete.bam", "rb"), pysam.Samfile("/home/xiavan/Data/lobSTRdata/genomedata/ped_2/lgs100797/lgs100797_complete.bam", "rb"), pysam.Samfile("/home/xiavan/Data/lobSTRdata/genomedata/ped_2/lgs100800/lgs100800_complete.bam", "rb"), pysam.Samfile("/home/xiavan/Data/lobSTRdata/genomedata/ped_2/lgs100837/lgs100837_complete.bam", "rb"), pysam.Samfile("/home/xiavan/Data/lobSTRdata/genomedata/ped_2/lgs100842/lgs100842_complete.bam", "rb"), pysam.Samfile("/home/xiavan/Data/lobSTRdata/genomedata/ped_2/lgs102066/lgs102066_complete.bam", "rb")]
+
+def getreads(chrom, start, end, sample):
+    for i,infile in enumerate(sample):
+        #print("\nReads for sample", i, ": ")
+        total = []
+        for j,read in enumerate((infile.fetch(sys.argv[1], int(sys.argv[2]), int(sys.argv[3])))):
+            total.append(j)
+        print("\nReads for sample", i, ":",len(total))
+
+print("\nGroup 1 :")
+getreads(sys.argv[1], int(sys.argv[2]), int(sys.argv[3]), samples1)
+print("\nGroup 2 :")
+getreads(sys.argv[1], int(sys.argv[2]), int(sys.argv[3]), samples2)

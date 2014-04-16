@@ -1,0 +1,12 @@
+#testing nested iteration to if statement on array. used for culling download queue by referencing the database.
+
+my_array=(1 2 3 4 5)
+
+for arg in "${my_array[@]}"
+do
+if  [ $arg -eq 3 ]; then
+	echo "This entry is three."
+else
+	echo "This entry is $arg"
+fi	
+done 

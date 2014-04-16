@@ -1,0 +1,16 @@
+#!/bin/env python
+
+import matplotlib.pyplot as plt
+
+a = [1,2,3]
+b = [2,4,6]
+c = [10,11,12,12,15]
+d = [1,3,5,9,15] 
+ab = [a,b]
+plt.plot(a,b, label="bleh")
+plt.plot(c,d, label="blah")
+plt.axis([0,20,0,20])
+plt.xlabel = "X stuff goes here"
+plt.ylabel = "y stuff goes there"
+plt.legend()
+plt.show()

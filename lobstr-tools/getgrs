@@ -1,0 +1,36 @@
+#/bin/env python
+
+#! use results of lobstr-compare to generate global repeat stability info
+
+import sys
+
+lcoutput = open(sys.argv[1])
+
+#unaffected is 1, affected is 2
+
+def getgrs(infile):
+    unaffected = 0
+    affected = 0
+    for line in infile:
+        line = line.split("\t")
+        if line[3] > line[4]:
+            affected += 1
+        elif line[4] > line[3]:
+            unaffected += 1
+        else:
+            pass
+    if affected > unaffected:
+        ratio = affected / unaffected 
+        print("affected/unaffected: ", affected,"/",unaffected)
+        print("Ratio of repeat expansions is: ", ratio)
+    elif unaffected > affected:
+        ratio = unaffected / affected
+        print("unaffected/affected: ", unaffected,"/",affected)
+        print("Ratio of repeat expansions is: ", ratio)
+    else:
+        print("Wow, unaffected and affected are probably equal.")
+        ratio = unaffected / affected 
+        print("unaffected/affected: ",unaffected,"/",affected)
+        print("Ratio of repeat expansions is: ", ratio)
+
+getgrs(lcoutput)

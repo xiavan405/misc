@@ -1,0 +1,22 @@
+#!/bin/env python
+
+import sys
+
+infile = open(sys.argv[1])
+
+def stripEscape(string):
+#Removes all escape sequences from the input string
+    delete = ""
+    i=1
+    while (i<0x20):
+        delete += chr(i)
+        i += 1
+    t = string.translate(None, delete)
+    return t
+
+for line in infile:
+    line = line.split("\t")
+    if (float(line[5]) != 0.0) and (float(line[5]) < 0.05):
+        line[5] = line[5].rstrip()
+        line = "\t".join(line)
+        print(line)

@@ -1,0 +1,19 @@
+#!/usr/bin/env python
+
+import sys
+
+#compare the qlob.py against the download list
+
+bamlist = open(sys.argv[1]).readlines()
+
+access_history = open(sys.argv[2]).readlines()
+
+bamlist = set(bamlist)
+
+access_history = set(access_history)
+
+def main(bamlist, history):
+    nonredundants = bamlist.difference(history)
+    #return all bamlist entries not found in history
+
+main(bamlist, access_history)

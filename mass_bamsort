@@ -1,0 +1,25 @@
+#!/usr/bin/env bash 
+
+for file in $(find /home/xiavan/Data/lobSTRdata/exomedata/affected_bams/ -type f)
+do
+    #abspath has to be manually entered because im feeling lazy
+    abspath="/home/xiavan/Data/lobSTRdata/exomedata/affected_bams/"
+    NAME=($(basename $file))
+    sortprefix="sorted-"
+    sortedname=$abspath$sortprefix$NAME
+    echo "Sorting $NAME"
+    samtools sort $file $sortedname
+    echo "Sorting completed."
+done
+
+for file in $(find /home/xiavan/Data/lobSTRdata/exomedata/unaffected_bams/ -type f)
+do
+        #abspath has to be manually entered because im feeling lazy
+        abspath="/home/xiavan/Data/lobSTRdata/exomedata/unaffected_bams/"
+        NAME=($(basename $file))
+        sortprefix="sorted-"
+        sortedname=$abspath$sortprefix$NAME
+        echo "Sorting $NAME"
+        samtools sort $file $sortedname
+        echo "Sorting completed."
+done

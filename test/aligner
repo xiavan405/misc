@@ -1,0 +1,47 @@
+#so i need to make a fifo that quip will decompress a given file into, simple enough. this fifo will then be read by cutadapt (hopefully it has some kind of stdin option) and remove any adapters and then pipe this stdout into bowtie to align to a genome, probly hg19 since its already there? 
+
+mkfifo /tmp/rnaseq.fifo
+mkfifo /tmp/trimmed.fifo
+ONEDIRECTORY="blah1"
+TWODIRECTORY="blah2"
+OUTDIRECTORY="whatever"
+
+#how do i get both of the mate pairs to either sequentially or at the same time?
+#its impossible to run the bowtie without both ready...
+#possibly separate the _1 and _2 files into separate subdirectories. 
+#call all of the files in the _1 directory, and for each one, call its name 
+#and "_2" to get that one there. 
+for file in ONEDIRECTORY #the directory with all the _1 files
+do
+	NAME=($(basename $FILE))
+	ID=(${NAME:0:9})
+	PARTTWO="%s/%s.fastq" "$OUTDIRECTORY" "$ID" #not sure if this is correct	
+	SAM="%s.sam" "$ID"
+	quip -c $FILE > rnaseq.fifo
+	cutadapt $(<adaptseq.conf) $NAME <rnaseq.fifo  #this syntax is prob wrong
+	trimmed.fifo > bowtie2 -x hg19 -1 $FILE -2 $OUTDIRECTORY > $SAM
+	#maybe rnaseq.fifo > cutadapt would make more sense here
+	#then i somehow pipe this information into bowtie. maybe another fifo or will a
+	#regular pipe work?
+done
+
+#ok round two
+
+WKDIR="/net/storage/RNAseqData/Human/1/"
+
+for FILE in WKDIR
+do
+	NAME=($(basename $FILE))
+	ID=(${NAME:0:9})
+	MATEDIR="/net/storage/RNAseqData/Human/%s_2.fastq.qp" "$ID"
+	MATEID=($(basename $MATEDIR))
+	TRIM1="%s_trimmed.fastq" "$ID"
+	TRIM2="%s_trimmed.fastq" "$MATEID"
+	SAMID="%s_aligned.fastq" "$ID"
+	quip -c $FILE > fifo
+	echo fifo | cutadapt $(adaptseq.conf) - > $TRIM1
+	quip -c $MATEDIR > fifo2
+	echo fifo2 | cutadapt $(adaptseq.conf) - > $TRIM2
+	bowtie2 -x hg19 -1 $TRIM1 -2 $TRIM2 > $SAMID
+	break
+done		

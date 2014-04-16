@@ -1,0 +1,28 @@
+#!/bin/bash
+
+function get_taxon_id {
+printf "SELECT common_name
+        FROM sra
+        WHERE run_accession = \"%s\"
+        LIMIT 1;
+        \n.quit\n" "$ID" | sqlite3 /home/xiavan/automateSRA/notdata/SRAmetadb.sqlite
+}
+
+for file in $(find /home/xiavan/automateSRA/ -type f)
+do
+	NAME=($(basename $file))
+	ID=(${NAME:0:9})
+	#echo $ID
+	#get_taxon_id
+	BLAH=($(get_taxon_id))
+	echo $BLAH
+if [ $BLAH == "9606" ]; then
+	echo "Human"
+	#mv $file /net/storage/RNAseqData/Human/
+elif [ $BLAH == "10090" ]; then
+	echo "Mouse"
+	#mv $file /net/storage/RNAseqData/Mouse/
+else
+	echo "Probably not supposed to be here..."
+fi
+done

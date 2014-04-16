@@ -1,0 +1,52 @@
+#!/bin/env python
+
+import sys
+
+#testing multiple testing corrections with a fake set of data
+
+pvals = [0.369, 0.166, 0.095, 0.159, 0.979, 0.479, 0.745, 0.21, 0.125, 0.439, 0.094, 0.283, 0.827, 0.065, 0.355, 0.997, 0.742, 0.615, 0.101, 0.561]
+
+infile = open(sys.argv[1], "r")
+
+#def bonferroni(plist):
+    corrected = []
+    total = len(plist)
+    #getting len of a list of floats works, i tried it ok
+    total += 1
+    for line in plist:
+        corrected.append(line*total)
+    print(corrected)
+
+#def benjamini_hochberg(plist):
+    corrected = []
+    plist = sorted(plist)
+    for i,line in enumerate(plist):
+        rank = i + 1
+        if rank == 1:
+            corrected.append(line)
+        else:
+            total = len(plist)
+            corrected.append(line*(total/(total-rank)))
+    print(corrected)
+
+#def getps(input_file):
+    plist = []
+    for line in input_file:
+        line = line.split("\t")
+        plist.append(line[5])
+    return plist
+
+
+
+#dont use these until you figure out why its using so much memory. if you try to use anything but getps your going to crash from using all memory.
+
+
+
+#print(pvals)
+#bonferroni(pvals)
+#benjamini_hochberg(pvals)
+
+#print(getps(infile))
+#bonferroni(getps(infile))
+
+#define get_significant, that uses the different methods and finds the values that are filtered from a specified threshold (0.05 probly) after correction.

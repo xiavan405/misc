@@ -1,0 +1,8 @@
+#practicing with counters
+
+COUNT=20
+until [ $COUNT -lt 10 ] 
+do
+	echo "Counter is $COUNT"
+	let COUNT-=1
+done 

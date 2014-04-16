@@ -1,0 +1,14 @@
+#!/usr/bin/bash
+
+echo "enter a directory"
+echo "> ";read dir
+echo "you put in $dir"
+
+for f in $(find $dir -maxdepth 1 -type d)
+do
+	echo $f
+	name=$(basename $f)	
+	bam="$f/13_final_bam/$name.bam"
+	echo $name
+	lobSTR --bam -f $bam --index-prefix /home/xiavan/Tools/lobSTR/lobSTRresources/lobstr_v2.0.3_hg19_ref/lobSTR_ --out /home/xiavan/Data/exomedata/$name
+done

@@ -1,0 +1,17 @@
+#can you pipe twice? you cant use one named pipe twice so use two? 
+
+mkfifo /tmp/test1.fifo
+mkfifo /tmp/test2.fifo
+
+DIR="/directory/"
+
+for FILE in DIR
+do
+	echo "nathanwethestdunwtfll" > stuff.txt
+	gzip stuff.txt
+	gzip -d stuff.txt.gz > /tmp/test1.fifo &
+	cat </tmp/test1.fifo > stuff2.txt
+done
+
+rm /tmp/test1.fifo
+rm /tmp/test2.fifo

@@ -1,0 +1,13 @@
+#this is a test of using the map function and multiprocessing in conjunction
+
+from multiprocessing import Pool
+
+def f(x):
+	target = open(x, 'w')
+	target.write("beep beep im a jeep")
+
+my_array=["a","b","c"]
+
+if __name__ == '__main__':
+	pool = Pool(processes=4)              # start 4 worker processes
+	pool.map (f, my_array[1:])          # prints "[0, 1, 4,..., 81]"

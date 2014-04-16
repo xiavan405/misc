@@ -1,0 +1,15 @@
+#proof of concept of interpreting filenames
+
+function checksize {
+echo $name
+}
+
+for file in *
+do
+name=($(basename "$file"))
+if [ $checksize -ge 3 ]; then
+	cp $file /home/xiavan/test/above3
+else
+	cp $file /home/xiavan/test/below3
+fi
+done

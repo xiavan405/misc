@@ -1,0 +1,12 @@
+#!/usr/bin env python
+
+import argparse
+
+parser = argparse.ArgumentParser()
+parser.add_argument("-v","--verbosity", help = "increase output verbosity",action="store_true")
+parser.add_argument("square", help = "var to be squared", type=int)
+args = parser.parse_args()
+
+if args.verbosity:
+    print("Multiplying", args.square, "by itself")
+print(args.square**2)

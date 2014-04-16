@@ -1,0 +1,25 @@
+#!/usr/bin/env bash 
+
+for file in $(find /home/xiavan/Data/lobSTRdata/exomedata/affected_bams/sorted/ -type f)
+do
+    #abspath has to be manually entered because im feeling lazy
+    abspath="/home/xiavan/Data/lobSTRdata/exomedata/affected_bams/sorted/"
+    NAME=($(basename $file))
+    outsuffix=".bai"
+    outname=$abspath$NAME$outsuffix
+    echo "Indexing $NAME"
+    samtools index $file $outname
+    echo "Indexing completed."
+done
+
+for file in $(find /home/xiavan/Data/lobSTRdata/exomedata/unaffected_bams/sorted/ -type f)
+do
+    #abspath has to be manually entered because im feeling lazy
+    abspath="/home/xiavan/Data/lobSTRdata/exomedata/unaffected_bams/sorted/"
+    NAME=($(basename $file))
+    outsuffix=".bai"
+    outname=$abspath$NAME$outsuffix
+    echo "Indexing $NAME"
+    samtools index $file $outname
+    echo "Indexing completed."
+done

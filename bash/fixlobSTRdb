@@ -1,0 +1,20 @@
+#!/bin/bash 
+#add all downloads in genomedata to the previously downloaded db (lobSTR_aligned.sqlite)
+
+echo "Enter a directory containing bams to be added to the lobSTR_aligned.sqlite database: "
+read dir
+
+function find_subdirectories {
+for entry in $(find $dir -type d)
+do
+	for line in $(ls $entry/*bam)
+	do
+		bamname=( $(basename $line) )
+		printf "insert into walnut_bams(entry_id) values(\"$bamname\");" | sqlite3 lobSTR_aligned.sqlite
+	echo "Entered $line into the database successfully."
+	done
+echo "Directory $entry has been completed."
+done
+}
+
+find_subdirectories

@@ -1,0 +1,11 @@
+#testing the usefulness of a primary test where a database is queried 
+
+function counttest {
+printf "select count(*)
+	from current_entries 
+	where run_accessions = \"1\";" | sqlite3 automateSRA
+}
+
+counttest
+
+[ counttest -eq 0 ] && echo "This will never see the stdout."

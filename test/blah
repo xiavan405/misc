@@ -1,0 +1,7 @@
+#!/bin/bash
+
+for line in $(cat /home/xiavan/Data/walnut_bams.txt)
+do
+	name=$(basename $line)
+	echo $name
+done

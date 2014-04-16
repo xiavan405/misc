@@ -1,0 +1,42 @@
+#!/bin/env python
+
+import numpy as np
+import matplotlib.pyplot as plt
+import sys
+
+#plt.plot()
+
+infile = open(sys.argv[1], 'r')
+
+def getx(input_file):
+    for line in input_file:
+        line = line.split("\t")
+        return line[1]
+
+def gety(input_file):
+    for line in input_file:
+        line = line.split("\t")
+        return line[5]
+
+#plt.plot([getx(infile)], [gety(infile)])
+#plt.show()
+
+#input is the lobstr results
+
+def lobstr_plot(input_file):
+    xvals = []
+    yvals = []
+    for i,line in enumerate(input_file):
+        line = line.split("\t")
+        if line[1] == None or line[5] == None:
+            pass
+        else:
+            if i % 100 == 0:
+                xvals.append(line[1])
+                yvals.append(line[5])
+    #print(xvals)
+    #print(yvals)
+    plt.plot(xvals, yvals)
+    plt.show()
+
+lobstr_plot(infile)

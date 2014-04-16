@@ -1,0 +1,43 @@
+#!/usr/bin/env python
+
+import argparse
+
+parser = argparse.ArgumentParser()
+parser.add_argument("-p", "--findp", action="store_true")
+parser.add_argument("infile", type=str)
+args = parser.parse_args()
+
+def getlen(afile):
+    for i,l in enumerate(afile):
+        pass
+    return i+1
+
+infile = open(args.infile)
+inlen = getlen(infile)
+
+def readf(afile):
+    for line in afile:
+        print(line)
+
+def find_sigp(afile):
+    print("hello!")
+    #to_output = []
+    for line in afile:
+        print("what!!!!")
+        line = line.split("\t")
+        print(float(line[5]))
+        if (float(line[5]) < 0.05):
+            line[5] = line[5].rstrip()
+            line = "\t".join(line)
+            print(line)
+
+find_sigp(infile)
+
+'''
+def main():
+    if args.findp:
+        print("Hello!")
+        print(find_sigp(infile))
+
+main()
+'''

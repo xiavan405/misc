@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+#helps format genome walnut list for weird structure of list
+
+file=$(cat /home/xiavan/Data/lobSTRdata/meta/genome_WalnutList.txt)
+for line in $file
+do
+	name=$(basename $line)
+	count=1
+	until [ $count -gt 23 ]
+	do
+		echo $line/13_final_bam/by_chr/$name-$count.bam >> /home/xiavan/Data/lobSTRdata/meta/final_genome_WalnutList.txt
+		let count+=1
+	done
+done

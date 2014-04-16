@@ -1,0 +1,80 @@
+#!/bin/env python
+
+import sys
+import argparse
+
+parser = argparse.ArgumentParser()
+parser.add_argument("-f", "--findp", action="store_true")
+parser.add_argument("-s", "--sorting", action="store_true")
+parser.add_argument("-b", "--bonferroni", action="store_true")
+parser.add_argument("-z", "--notzeroes", action="store_true")
+parser.add_argument("input", help="input text file to be filtered", type=str)
+args = parser.parse_args()
+
+infile = open(args.input)
+inlen = len(infile)
+
+toprint = open(args.input)
+
+def find_sigp(infile):
+    to_output = []
+    for line in infile:
+        line = line.split("\t")
+        if (float(line[5]) < 0.05):
+            line[5] = line[5].rstrip()
+            line = "\t".join(line)
+            print(line)
+
+def find_notzeroes(infile):
+    for line in infile:
+        line = line.split("\t")
+        if (float(line[5]) != 0.0) and (float(line[5]) < 0.05):
+            line[5] = line[5].rstrip()
+            line = "\t".join(line)
+            print(line)
+
+def sorting(infile):
+    to_print = []
+    for line in infile:
+        line = line.split("\t")
+        difference = float(line[4]) - float(line[5])
+        #aline.append(difference)
+        to_print.append(line)
+        #print(to_print)
+    sorted_list = (sorted(to_print, key=lambda stuff: stuff[5]))
+    for line in sorted_list:
+        line[5] = line[5].rstrip()
+        for i,value in enumerate(line):
+            line[i] = str(value)
+            print("\t".join(line))
+
+def bonferroni(infile, inlen):
+    for line in input_file:
+        outputlist = []
+        #print(line)
+        line = line.split("\t")
+        #line[5] = line[5]*inlen
+        #line[5] = line[5].rstrip("\n")
+        #line = "\t".join(line)
+        outputlist.append(line[0])
+        outputlist.append(line[1])
+        outputlist.append(line[2])
+        outputlist.append(line[3])
+        outputlist.append(line[4])
+        bf = line[5].rstrip()
+        fixed = float(bf)*int(inlen)
+        outputlist.append(fixed)
+        to_print = "\t".join([outputlist[0],outputlist[1],outputlist[2],outputlist[3],outputlist[4],str(outputlist[5])])
+        print(to_print)
+
+def main():
+    if args.findp:
+        find_sigp(infile)
+    if args.notzeroes:
+        find_notzeroes(infile)
+    if args.bonferroni:
+        bonferroni(infile, inlen)        
+    if args.sorting:
+        sorting(infile)
+    else:
+        print("No options specified")

@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+
+usage() {
+	echo "USAGE: $0 -o [combined.bam] bam1.bam bam2.bam ..." 1>&2
+	exit 1
+}
+
+OUTBAM=combined.bam
+
+while getopts o: opt; do
+	case $opt in
+		o) OUTBAM=$OPTARG ;;
+		?) usage ;;
+	esac
+done
+shift $((OPTIND - 1))
+
+[ $# -lt 1 ] && usage
+
+echo "Concatenating BAMs..." 1>&2
+
+( samtools view -H $1 && \
+	for file in "$@"; do
+		samtools view $file 
+	done
+) | samtools view -bS - > $OUTBAM
+
+echo "Sorting combined BAM..." 1>&2
+samtools sort -m 1024M $OUTBAM $$
+mv $$.bam $OUTBAM
+echo "Indexing combined BAM..." 1>&2
+samtools index $OUTBAM
+echo "Done." 1>&2

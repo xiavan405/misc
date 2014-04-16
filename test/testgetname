@@ -1,0 +1,13 @@
+#!/bin/bash
+
+name=$(basename $1)
+id=${name:0:9}
+chrom=${name:10:2}
+if [ ${chrom:1:1} == "." ]; then
+	chrom=${chrom:0:1}
+fi
+
+echo $name
+echo $id
+echo $chrom
+echo ${chrom:1:1}

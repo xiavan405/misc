@@ -1,0 +1,7 @@
+#see if you can pass commands over ssh like normal
+
+printf "trinidad68\n" | ssh roopnarinesinghx@walnut.omrf.hsc.net.ou.edu
+
+cd /Volumes
+
+for $file in $(

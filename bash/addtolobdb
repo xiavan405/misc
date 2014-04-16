@@ -1,0 +1,12 @@
+#!/bin/bash
+
+#quickly add the values of the already downloaded stuff in ../genomedata/ to the lobSTR.sqlite
+
+echo "Please enter a directory containing the files that should be added to lobSTR.sqlite"
+read dir
+
+for entry in $(ls $dir/*bam)
+do
+	name=( $(basename $entry) )
+	printf "insert into walnut_bams(entry_id) values(\"$name\");" | sqlite3 /home/xiavan/Testing/lobSTRanalysis/genome/lobSTR.sqlite
+done

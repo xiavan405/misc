@@ -1,0 +1,3 @@
+#testing sql and bash syntax
+
+printf "SELECT run_accession FROM sra WHERE taxon_id = "9606"; \n.quit\n" | sqlite3 /home/xiavan/automateSRA/SRAmetadb.sqlite

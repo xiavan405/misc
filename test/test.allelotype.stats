@@ -1,0 +1,20 @@
+Starttime: Wed Nov 13 13:07:59 2013
+Endtime: Wed Nov 13 15:07:05 2013
+Git version: 
+Machtype: x86_64
+Params: # version=allelotype_;command=classify;bam=/home/xiavan/Data/lobSTRdata/genomedata/lgs100840/lgs1000840.bam;noise-model=/home/xiavan/Tools/lobSTR/models/illumina_v2.0.3;strinfo=/home/xiavan/Tools/lobSTR/resources/lobstr_v2.0.3_hg19_strinfo.tab;out=/home/xiavan/Testing/test;index-prefix=/home/xiavan/Tools/lobSTR/resources/lobstr_v2.0.3_hg19_ref/lobSTR_;
+Allelotype stats
+Sample	lobSTR
+Num calls	1031744
+Num calls >=5x	816125
+Mean coverage	12.2666
+Mean perc. agree	1
+
+Call type by period (0/0, 0/1, 1/1, 1/2)
+Period 1	495210	0	0	0
+Period 2	215895	0	0	0
+Period 3	64743	0	0	0
+Period 4	170857	0	0	0
+Period 5	57685	0	0	0
+Period 6	27354	0	0	0
+

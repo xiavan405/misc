@@ -1,0 +1,41 @@
+#!/usr/bin/env bash
+
+echo "Enter a Taxon ID for querying RNA-Seq data: "
+#Taxon id for humans is 9606
+read taxon
+echo "You entered: $taxon"
+
+function get_run_accession {
+printf "SELECT run_accession 
+        FROM run r
+        INNER JOIN experiment e
+        ON e.experiment_accession = r.experiment_accession
+        INNER JOIN sample s
+        ON e.sample_accession = s.sample_accession
+        WHERE taxon_id = \"%s\" 
+        AND library_source = \"TRANSCRIPTOMIC\"
+        AND spot_length BETWEEN 30 AND 100 
+        AND library_strategy = \"RNA-Seq\"
+        LIMIT 1;
+        \n.quit\n" "$taxon" | sqlite3 SRAmetadb.sqlite
+}
+
+declare -a my_array
+
+my_array=( $(get_run_accession) )
+
+my_array_length=${#my_array[@]}
+
+echo "Number of entries found: $my_array_length"
+
+declare -a pass_to_GetSRA
+
+pass_to_GetSRA=($(./getSRA.py ${my_array[@]}))
+
+echo ${pass_to_GetSRA[@]}
+#now functionally outputs the list of run_accession ids in an array, echo is unnecessary and was just to test
+#add a way to check for the metadb, notify user, and download it if necessary. 
+#add an output directory option
+#add a usage definition function
+#Cory - put on Git
+#Cory - make it work with cron. make a crontab for it?

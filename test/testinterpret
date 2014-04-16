@@ -1,0 +1,7 @@
+input="Naturally Hans is wet, he's standing under a waterfall."
+
+function testecho {
+	echo $input
+}
+
+testecho

@@ -1,0 +1,28 @@
+#!/usr/bin/env python
+
+import argparse
+import sys
+
+import pysam
+
+parser = argparse.ArgumentParser()
+parser.add_argument("-r", "--region-file", required=True)
+parser.add_argument("-1", nargs="+", required=True)
+#parser.add_argument("-2", nargs="+", required=True)
+args = parser.parse_args()
+
+group1 = [pysam.Samfile(path, "rb") for path in getattr(args, "1")]
+
+with open(args.region_file) as h:
+	h.__next__()
+	for i,line in enumerate(h):
+		fields = line.split("\t")
+		chrom, start, end = fields[:3]
+		start, end = int(start), int(end)
+		for sample1 in group1:
+			for read in sample1.fetch(chrom, start, end):
+				print(read)
+				print(dir(read))
+
+		if i == 10:
+			break

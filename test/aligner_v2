@@ -1,0 +1,42 @@
+# try separating the code that calls cutadapt on _1 and _2 and the code
+# that calls bowtie on the products of cutadapt into two functions
+# then link them with & and &&. then you can remove the "waste" trimmed fastqs.
+
+dir1="/net/storage/RNAseqData/Human/1/"
+dir2="/net/storage/RNAseqData/Human/2/"
+samdir="/net/storage/RNAseqData/Human/SAM"
+tmp="/net/storage/RNAseqData/Human/tmp/"
+
+function trimmer {
+	id=$(basename $1)
+	OUTPUT=$tmp$ID"_trimmed.fastq"
+	quip -c $1 > fifo
+	echo "Removing adapter sequences for: $id"
+	echo fifo | cutadapt $(adaptseq.conf) - > $OUTPUT
+}
+
+function bowtie {
+	file1=$tmp$1"_1_trimmed.fastq"
+	file2=$tmp$1"_2_trimmed.fastq"
+	output=$samdir$1".sam"
+	echo "Aligning $id reads"
+	bowtie2 -x hg19 -1 $file1 -2 $file2 > $output
+}
+
+function aligner {
+for file in $dir1
+do
+	name=$(basename $file)
+	id=${name:0:9}
+	file1=$file
+	file2=$dir2$id"_2.fastq.qp"
+	trimmer $file1 & trimmer $file2 && $id
+		#for specifying args, bash lets you use $#s
+	rm trim1
+	rm trim2
+		#to get rid of intermediates formed by cutadapt
+	exit
+done
+}
+
+aligner

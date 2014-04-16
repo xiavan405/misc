@@ -1,0 +1,29 @@
+#this is a bash script to test appending a database while iterating through an array
+
+#first just a check for the database 
+if [ -e automateSRA.sqlite ]; then
+	echo "Database found."
+else
+	echo "Database not found. Creating database in current directory."
+	printf "create table \"current_entries\"(\"run_accession\" \"char(9)\");" | sqlite3 automateSRA.sqlite
+fi
+
+my_array=(1 2 3 4 5 6 7 8 9 10)
+
+for arg in "${my_array[@]}"
+do
+function count_test {
+printf "select count(*)
+	from current_entries
+	where run_accession = \"%s\";" "$arg" | sqlite3 automateSRA.sqlite
+}
+
+exists=( $(count_test) )
+echo $exists
+if [ $exists -eq 0 ]; then
+	echo "Entry $arg DNE in databse. Adding to list."
+	printf "insert into \"current_entries\"(\"run_accession\") values (\"$arg\");" | sqlite3 automateSRA.sqlite
+else
+	echo "Entry $arg already exists in database. Ignoring."
+fi
+done

@@ -1,0 +1,8 @@
+#testing iteration because i cant remember anything
+
+file=(cat /home/xiavan/Data/lobSTRdata/meta/genome_WalnutList.txt)
+
+for line in $(cat /home/xiavan/Data/lobSTRdata/meta/genome_WalnutList.txt)
+do 
+	echo $line
+done 

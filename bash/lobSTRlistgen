@@ -1,0 +1,32 @@
+#!/bin/bash
+
+dir="/home/xiavan/walnut/"
+
+if [ -e lobSTR.sqlite ]; then
+        echo "Database of walnut entries found."
+else
+        echo "Database of walnut entries not found. Creating database in current directory."
+        printf "create table \"walnut_bams\" (\"entry_id\" \"text\");" | sqlite3 lobSTR.sqlite
+        #plug the actual table creation here
+        for f in $(find $dir -maxdepth 1 -type d)
+        do
+                name=( $(basename $f) )
+                printf "INSERT INTO walnut_bams VALUES(\"$name\");" | sqlite3 lobSTR.sqlite
+        	printf "DELETE FROM walnut_bams WHERE entry_id="walnut";" | sqlite3 lobSTR.sqlite
+	done
+fi
+
+function getIDs {
+printf "SELECT entry_id
+        FROM walnut_bams
+        ;" | sqlite3 lobSTR.sqlite
+}
+
+declare -a lobSTR_ids
+
+lobSTR_ids=( $(getIDs) )
+
+for entry in ${lobSTR_ids[@]}
+do	
+	ls /home/xiavan/walnut/$entry/13_final_bam/by_chr/*bam
+done
