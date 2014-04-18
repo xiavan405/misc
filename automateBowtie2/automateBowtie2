@@ -1,3 +1,0 @@
-#bash script to automate the creation of a fifo, grabbing a fastq.qp, cutting its adapters, and aligning the data after its done. 
-
-
