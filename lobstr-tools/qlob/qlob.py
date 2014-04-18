@@ -5,6 +5,9 @@ import datetime
 import argparse
 import logging
 from multiprocessing import Pool
+from os.path import basename
+from os.path import exists
+from os import stat
 
 parser=argparse.ArgumentParser()
 parser.add_argument("-b", "--bams", required=True, help="text file list of bamfile locations")
@@ -38,33 +41,58 @@ def remove_redundants(bamlist):
                 break
     return(non_redundants)
 
-'''
-def old_remove_redundants(bam):
-    history=open("qlob_history.txt", "a+")
-    not_redundant=[]
-    for line in history:
-        if bam==line:
-            pass
-        else:
-            not_redundant.append(line)
-    #return(not_redundant)
-'''
-
 def record_history(bam):
     history=open("qlob_history.txt", "a+")
     history.write(bam)
     history.write("\n")
 
-def logger(bam):
-    logging.basicConfig(filename='qlob.log', level=logging.DEBUG)
-    logging.debug(datetime.datetime.now())
-    logging.debug(bam)
+def logger(bam, boolean):
+    if boolean == True:
+        logging.info(datetime.datetime.now())
+        logging.info(bam)
+    elif boolean == False:
+        error_string=str("Filesize indicates bamfile is empty: "+bam)
+        logging.error(error_string)
+
+def check_output(bam_location, output):
+    new_location=output+basename(bam_location)
+    if exists(new_location) == True:
+        file_info = stat(new_location)
+    #usually am empty bam, which would generated when the sshfs
+    #becomes unmounted, will be about 450 bytes, so I chose 500 as the cutoff.
+        if int(file_info.st_size) > 500:
+            True
+        elif int(file_info.st_size) <= 500:
+            False
+        else:
+            error_string=str("Error in check_output() filesize check for "+new_location)
+            logging.error(error_string)
+    else:
+        print("file dont exist!")
 
 def main(bamtuple):
     print("lobstr --entropy-threshold 0.6 --bam -f ",bamtuple[0],"--index-prefix ",bamtuple[1],"--out ",bamtuple[2]) #%(bamtuple[0], bamtuple[1], bamtuple[2]))
-    record_history(bamtuple[0])
-    logger(bamtuple[0])
+    '''
+    check_output will check the filesize of the lobstr output file and as long as it is 
+    greater than 500kb it will be considered valid. Then it can be added to the log and
+    the history file stating it has been completed.
+    '''
+    if check_output(bamtuple[0], args.output) == True:
+        record_history(bamtuple[0])
+        logger(bamtuple[0], True)
+    else:
+        '''
+        If the check_output finds a file too small, it will log that the file did not get
+        completely processed by lobSTR, usually this will result from the sshfs file
+        system becoming unmounted after a period of time. logger() will need to deal with
+        both positive and negative check_output() results which is why i added the boolean
+        parameter.
+        '''
+        logger(bamtuple[0], False)
 
+#initialize logging file
+logging.basicConfig(filename='qlob.log', level=logging.DEBUG)
+#unparallelized start of qlob
 for entry in preprocessing(remove_redundants(args.bams), args.index, args.output):
     main(entry)
 
