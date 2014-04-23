@@ -1,0 +1,14 @@
+#!/usr/bin/env python
+
+from subprocess import call
+import sys
+
+infile = open(sys.argv[1], 'r')
+
+for entry in infile:
+    entry = entry.split("\t")
+    chrom=entry[0]
+    start=entry[1]
+    end=entry[2]
+    print(chrom,start,end)
+    call("/home/xiavan/Projects/lobstr-compare/lobstr-read-viewer.py %s %s %s -s /home/xiavan/Data/lobSTRdata/exomedata/unaffected_exome_test1.txt /home/xiavan/Data/lobSTRdata/exomedata/affected_exome_test1.txt -r" %(chrom,start,end), shell=True)
