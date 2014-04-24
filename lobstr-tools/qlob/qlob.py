@@ -77,7 +77,7 @@ def check_output(bam_location, output):
     else:
         print("file doesn't exist!")
         dne_error_string=str("Error in check_output() file does not exist: "+new_location)
-        logging/error(dne_error_string)
+        logging.error(dne_error_string)
 
 def main(bamtuple):
     print("lobstr --entropy-threshold 0.6 --bam -f ",bamtuple[0],"--index-prefix ",bamtuple[1],"--out ",bamtuple[2]) #%(bamtuple[0], bamtuple[1], bamtuple[2]))
@@ -111,7 +111,7 @@ if args.norun == True:
     for entry in stuff_to_print:
         print(entry[0])
 else:    
-    for entry in preprocessing(remove_redundants(args.bams), args.index, args.output):
+    for entry in preprocessing(rrv2(args.bams), args.index, args.output):
         main(entry)
 
 #if __name__ == '__main__':

@@ -3,26 +3,37 @@
 import pysam
 import sys
 
-samples1 = [pysam.Samfile("/home/xiavan/Data/lobSTRdata/genomedata/ped_1/lgs100840/lgs100840_complete.bam", "rb"), pysam.Samfile("/home/xiavan/Data/lobSTRdata/genomedata/ped_1/lgs300788/lgs300788_complete.bam", "rb"), pysam.Samfile("/home/xiavan/Data/lobSTRdata/genomedata/ped_1/lgs300939/lgs300939_complete.bam", "rb"), pysam.Samfile("/home/xiavan/Data/lobSTRdata/genomedata/ped_1/lgs100101/lgs100101_complete.bam", "rb"), pysam.Samfile("/home/xiavan/Data/lobSTRdata/genomedata/ped_1/lgs100235/lgs100235_complete.bam", "rb"), pysam.Samfile("/home/xiavan/Data/lobSTRdata/genomedata/ped_1/lgs100317/lgs100317_complete.bam", "rb"), pysam.Samfile("/home/xiavan/Data/lobSTRdata/genomedata/ped_1/lgs300786/lgs300786_complete.bam", "rb"), pysam.Samfile("/home/xiavan/Data/lobSTRdata/genomedata/ped_1/lgs300940/lgs300940_complete.bam", "rb")]
+samples1_path=open(sys.argv[5], 'r')
+samples2_path=open(sys.argv[6], 'r')
 
-samples2 = [pysam.Samfile("/home/xiavan/Data/lobSTRdata/genomedata/ped_2/lgs102004/lgs102004_complete.bam", "rb"), pysam.Samfile("/home/xiavan/Data/lobSTRdata/genomedata/ped_2/lgs300782/lgs300782_complete.bam", "rb"), pysam.Samfile("/home/xiavan/Data/lobSTRdata/genomedata/ped_2/lgs300792/lgs300792_complete.bam", "rb"), pysam.Samfile("/home/xiavan/Data/lobSTRdata/genomedata/ped_2/lgs100797/lgs100797_complete.bam", "rb"), pysam.Samfile("/home/xiavan/Data/lobSTRdata/genomedata/ped_2/lgs100800/lgs100800_complete.bam", "rb"), pysam.Samfile("/home/xiavan/Data/lobSTRdata/genomedata/ped_2/lgs100837/lgs100837_complete.bam", "rb"), pysam.Samfile("/home/xiavan/Data/lobSTRdata/genomedata/ped_2/lgs100842/lgs100842_complete.bam", "rb"), pysam.Samfile("/home/xiavan/Data/lobSTRdata/genomedata/ped_2/lgs102066/lgs102066_complete.bam", "rb")]
+def generate_samples(path):
+    samples_list=[]
+    for bam in path:
+        bam=bam.rstrip()
+        samples_list.append(pysam.Samfile(bam, "rb"))
+    return(samples_list)
 
-def getreads(chrom, start, end, sample, cutoff):
-    cutoff = sys.argv[3:
-    acceptable-reads = []
+def getreads(chrom, start, end, cutoff, sample):
+    #cutoff = sys.argv[3:
+    acceptablereads=[]
     for i,infile in enumerate(sample):
         #print("\nReads for sample", i, ": ")
         total = []
+        #debug print
         for j,read in enumerate((infile.fetch(sys.argv[1], int(sys.argv[2]), int(sys.argv[3])))):
             total.append(j)
         readcount = len(total)
-        if readcount > cutoff or readcount = cutoff:
+        if (readcount > cutoff) or (readcount == cutoff):
             #print whole line from lobstr compare output?
-            acceptable-reads.append(read)
+            acceptablereads.append(read)
         else:
             pass
+    return(acceptable_reads)
+
+samples1=generate_samples(samples1_path)
+samples2=generate_samples(samples2_path)
 
 print("\nGroup 1 :")
-getreads(sys.argv[1], int(sys.argv[2]), int(sys.argv[3]), samples1)
+getreads(sys.argv[1], int(sys.argv[2]), int(sys.argv[3]), sys.argv[4], samples1)
 print("\nGroup 2 :")
-getreads(sys.argv[1], int(sys.argv[2]), int(sys.argv[3]), samples2)
+getreads(sys.argv[1], int(sys.argv[2]), int(sys.argv[3]), sys.argv[4], samples2)
