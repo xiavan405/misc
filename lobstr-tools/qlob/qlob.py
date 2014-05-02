@@ -8,6 +8,7 @@ from multiprocessing import Pool
 from os.path import basename
 from os.path import exists
 from os import stat
+from subprocess import call
 
 parser=argparse.ArgumentParser()
 parser.add_argument("-b", "--bams", required=True, help="text file list of bamfile locations")
@@ -80,8 +81,9 @@ def check_output(bam_location, output):
         logging.error(dne_error_string)
 
 def main(bamtuple):
-    print("lobstr --entropy-threshold 0.6 --bam -f ",bamtuple[0],"--index-prefix ",bamtuple[1],"--out ",bamtuple[2]) #%(bamtuple[0], bamtuple[1], bamtuple[2]))
-    
+    #print("lobstr --entropy-threshold 0.6 --bam -f ",bamtuple[0],"--index-prefix ",bamtuple[1],"--out ",bamtuple[2]) #%(bamtuple[0], bamtuple[1], bamtuple[2]))
+    call("lobSTR --entropy-threshold 0.6 -f %s --index-prefix %s --out %s" %(bamtuple[0],bamtuple[1],bamtuple[2]), shell=True)
+
     '''
     check_output will check the filesize of the lobstr output file and as long as it is 
     greater than 500kb it will be considered valid. Then it can be added to the log and
