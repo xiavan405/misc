@@ -82,7 +82,7 @@ def check_output(bam_location, output):
 
 def main(bamtuple):
     #print("lobstr --entropy-threshold 0.6 --bam -f ",bamtuple[0],"--index-prefix ",bamtuple[1],"--out ",bamtuple[2]) #%(bamtuple[0], bamtuple[1], bamtuple[2]))
-    call("lobSTR --entropy-threshold 0.6 -f %s --index-prefix %s --out %s" %(bamtuple[0],bamtuple[1],bamtuple[2]), shell=True)
+    call("lobSTR --entropy-threshold 0.6 --bam -f %s --index-prefix %s --out %s" %(bamtuple[0],bamtuple[1],bamtuple[2]), shell=True)
 
     '''
     check_output will check the filesize of the lobstr output file and as long as it is 

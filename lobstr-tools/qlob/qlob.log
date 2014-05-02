@@ -1978,3 +1978,157 @@ ERROR:root:Error in check_output() file does not exist: /home/xiavan/Data/lobSTR
 ERROR:root:Filesize indicates bamfile is empty: /home/xiavan/walnut/lgs105692/13_final_bam/lgs105692.bam
 ERROR:root:Error in check_output() file does not exist: /home/xiavan/Data/lobSTRdata/exomedata/lgs102038.bam
 ERROR:root:Filesize indicates bamfile is empty: /home/xiavan/walnut/lgs102038/13_final_bam/lgs102038.bam
+ERROR:root:Error in check_output() file does not exist: /home/xiavan/Data/lobSTRdata/exomedata/lgs102844.bam
+ERROR:root:Filesize indicates bamfile is empty: /home/xiavan/walnut/lgs102844/13_final_bam/lgs102844.bam
+ERROR:root:Error in check_output() file does not exist: /home/xiavan/Data/lobSTRdata/exomedata/lgs107017.bam
+ERROR:root:Filesize indicates bamfile is empty: /home/xiavan/walnut/lgs107017/13_final_bam/lgs107017.bam
+ERROR:root:Error in check_output() file does not exist: /home/xiavan/Data/lobSTRdata/exomedata/lgs105134.bam
+ERROR:root:Filesize indicates bamfile is empty: /home/xiavan/walnut/lgs105134/13_final_bam/lgs105134.bam
+ERROR:root:Error in check_output() file does not exist: /home/xiavan/Data/lobSTRdata/exomedata/lgs106823.bam
+ERROR:root:Filesize indicates bamfile is empty: /home/xiavan/walnut/lgs106823/13_final_bam/lgs106823.bam
+ERROR:root:Error in check_output() file does not exist: /home/xiavan/Data/lobSTRdata/exomedata/lgs300086.bam
+ERROR:root:Filesize indicates bamfile is empty: /home/xiavan/walnut/lgs300086/13_final_bam/lgs300086.bam
+ERROR:root:Error in check_output() file does not exist: /home/xiavan/Data/lobSTRdata/exomedata/lgs301945.bam
+ERROR:root:Filesize indicates bamfile is empty: /home/xiavan/walnut/lgs301945/13_final_bam/lgs301945.bam
+ERROR:root:Error in check_output() file does not exist: /home/xiavan/Data/lobSTRdata/exomedata/lgs103548.bam
+ERROR:root:Filesize indicates bamfile is empty: /home/xiavan/walnut/lgs103548/13_final_bam/lgs103548.bam
+ERROR:root:Error in check_output() file does not exist: /home/xiavan/Data/lobSTRdata/exomedata/lgs301758.bam
+ERROR:root:Filesize indicates bamfile is empty: /home/xiavan/walnut/lgs301758/13_final_bam/lgs301758.bam
+ERROR:root:Error in check_output() file does not exist: /home/xiavan/Data/lobSTRdata/exomedata/lgs103461.bam
+ERROR:root:Filesize indicates bamfile is empty: /home/xiavan/walnut/lgs103461/13_final_bam/lgs103461.bam
+ERROR:root:Error in check_output() file does not exist: /home/xiavan/Data/lobSTRdata/exomedata/lgs102774.bam
+ERROR:root:Filesize indicates bamfile is empty: /home/xiavan/walnut/lgs102774/13_final_bam/lgs102774.bam
+ERROR:root:Error in check_output() file does not exist: /home/xiavan/Data/lobSTRdata/exomedata/lgs730233.bam
+ERROR:root:Filesize indicates bamfile is empty: /home/xiavan/walnut/lgs730233/13_final_bam/lgs730233.bam
+ERROR:root:Error in check_output() file does not exist: /home/xiavan/Data/lobSTRdata/exomedata/lgs302706.bam
+ERROR:root:Filesize indicates bamfile is empty: /home/xiavan/walnut/lgs302706/13_final_bam/lgs302706.bam
+ERROR:root:Error in check_output() file does not exist: /home/xiavan/Data/lobSTRdata/exomedata/lgs302736.bam
+ERROR:root:Filesize indicates bamfile is empty: /home/xiavan/walnut/lgs302736/13_final_bam/lgs302736.bam
+ERROR:root:Error in check_output() file does not exist: /home/xiavan/Data/lobSTRdata/exomedata/lgs301540.bam
+ERROR:root:Filesize indicates bamfile is empty: /home/xiavan/walnut/lgs301540/13_final_bam/lgs301540.bam
+ERROR:root:Error in check_output() file does not exist: /home/xiavan/Data/lobSTRdata/exomedata/lgs107331.bam
+ERROR:root:Filesize indicates bamfile is empty: /home/xiavan/walnut/lgs107331/13_final_bam/lgs107331.bam
+ERROR:root:Error in check_output() file does not exist: /home/xiavan/Data/lobSTRdata/exomedata/lgs107047.bam
+ERROR:root:Filesize indicates bamfile is empty: /home/xiavan/walnut/lgs107047/13_final_bam/lgs107047.bam
+ERROR:root:Error in check_output() file does not exist: /home/xiavan/Data/lobSTRdata/exomedata/lgs301491.bam
+ERROR:root:Filesize indicates bamfile is empty: /home/xiavan/walnut/lgs301491/13_final_bam/lgs301491.bam
+ERROR:root:Error in check_output() file does not exist: /home/xiavan/Data/lobSTRdata/exomedata/lgs103382.bam
+ERROR:root:Filesize indicates bamfile is empty: /home/xiavan/walnut/lgs103382/13_final_bam/lgs103382.bam
+ERROR:root:Error in check_output() file does not exist: /home/xiavan/Data/lobSTRdata/exomedata/lgs105310.bam
+ERROR:root:Filesize indicates bamfile is empty: /home/xiavan/walnut/lgs105310/13_final_bam/lgs105310.bam
+ERROR:root:Error in check_output() file does not exist: /home/xiavan/Data/lobSTRdata/exomedata/lgs300995.bam
+ERROR:root:Filesize indicates bamfile is empty: /home/xiavan/walnut/lgs300995/13_final_bam/lgs300995.bam
+ERROR:root:Error in check_output() file does not exist: /home/xiavan/Data/lobSTRdata/exomedata/lgs102858.bam
+ERROR:root:Filesize indicates bamfile is empty: /home/xiavan/walnut/lgs102858/13_final_bam/lgs102858.bam
+ERROR:root:Error in check_output() file does not exist: /home/xiavan/Data/lobSTRdata/exomedata/lgs103523.bam
+ERROR:root:Filesize indicates bamfile is empty: /home/xiavan/walnut/lgs103523/13_final_bam/lgs103523.bam
+ERROR:root:Error in check_output() file does not exist: /home/xiavan/Data/lobSTRdata/exomedata/lgs301947.bam
+ERROR:root:Filesize indicates bamfile is empty: /home/xiavan/walnut/lgs301947/13_final_bam/lgs301947.bam
+ERROR:root:Error in check_output() file does not exist: /home/xiavan/Data/lobSTRdata/exomedata/lgs101703.bam
+ERROR:root:Filesize indicates bamfile is empty: /home/xiavan/walnut/lgs101703/13_final_bam/lgs101703.bam
+ERROR:root:Error in check_output() file does not exist: /home/xiavan/Data/lobSTRdata/exomedata/lgs106761.bam
+ERROR:root:Filesize indicates bamfile is empty: /home/xiavan/walnut/lgs106761/13_final_bam/lgs106761.bam
+ERROR:root:Error in check_output() file does not exist: /home/xiavan/Data/lobSTRdata/exomedata/lgs301873.bam
+ERROR:root:Filesize indicates bamfile is empty: /home/xiavan/walnut/lgs301873/13_final_bam/lgs301873.bam
+ERROR:root:Error in check_output() file does not exist: /home/xiavan/Data/lobSTRdata/exomedata/lgs103945.bam
+ERROR:root:Filesize indicates bamfile is empty: /home/xiavan/walnut/lgs103945/13_final_bam/lgs103945.bam
+ERROR:root:Error in check_output() file does not exist: /home/xiavan/Data/lobSTRdata/exomedata/lgs301885.bam
+ERROR:root:Filesize indicates bamfile is empty: /home/xiavan/walnut/lgs301885/13_final_bam/lgs301885.bam
+ERROR:root:Error in check_output() file does not exist: /home/xiavan/Data/lobSTRdata/exomedata/lgs301936.bam
+ERROR:root:Filesize indicates bamfile is empty: /home/xiavan/walnut/lgs301936/13_final_bam/lgs301936.bam
+ERROR:root:Error in check_output() file does not exist: /home/xiavan/Data/lobSTRdata/exomedata/lgs000708.bam
+ERROR:root:Filesize indicates bamfile is empty: /home/xiavan/walnut/lgs000708/13_final_bam/lgs000708.bam
+ERROR:root:Error in check_output() file does not exist: /home/xiavan/Data/lobSTRdata/exomedata/lgs304888.bam
+ERROR:root:Filesize indicates bamfile is empty: /home/xiavan/walnut/lgs304888/13_final_bam/lgs304888.bam
+ERROR:root:Error in check_output() file does not exist: /home/xiavan/Data/lobSTRdata/exomedata/lgs106126.bam
+ERROR:root:Filesize indicates bamfile is empty: /home/xiavan/walnut/lgs106126/13_final_bam/lgs106126.bam
+ERROR:root:Error in check_output() file does not exist: /home/xiavan/Data/lobSTRdata/exomedata/lgs101049.bam
+ERROR:root:Filesize indicates bamfile is empty: /home/xiavan/walnut/lgs101049/13_final_bam/lgs101049.bam
+ERROR:root:Error in check_output() file does not exist: /home/xiavan/Data/lobSTRdata/exomedata/lgs101249.bam
+ERROR:root:Filesize indicates bamfile is empty: /home/xiavan/walnut/lgs101249/13_final_bam/lgs101249.bam
+ERROR:root:Error in check_output() file does not exist: /home/xiavan/Data/lobSTRdata/exomedata/lgs300167.bam
+ERROR:root:Filesize indicates bamfile is empty: /home/xiavan/walnut/lgs300167/13_final_bam/lgs300167.bam
+ERROR:root:Error in check_output() file does not exist: /home/xiavan/Data/lobSTRdata/exomedata/lgs100889.bam
+ERROR:root:Filesize indicates bamfile is empty: /home/xiavan/walnut/lgs100889/13_final_bam/lgs100889.bam
+ERROR:root:Error in check_output() file does not exist: /home/xiavan/Data/lobSTRdata/exomedata/lgs106906.bam
+ERROR:root:Filesize indicates bamfile is empty: /home/xiavan/walnut/lgs106906/13_final_bam/lgs106906.bam
+ERROR:root:Error in check_output() file does not exist: /home/xiavan/Data/lobSTRdata/exomedata/lgs106633.bam
+ERROR:root:Filesize indicates bamfile is empty: /home/xiavan/walnut/lgs106633/13_final_bam/lgs106633.bam
+ERROR:root:Error in check_output() file does not exist: /home/xiavan/Data/lobSTRdata/exomedata/lgs102919.bam
+ERROR:root:Filesize indicates bamfile is empty: /home/xiavan/walnut/lgs102919/13_final_bam/lgs102919.bam
+ERROR:root:Error in check_output() file does not exist: /home/xiavan/Data/lobSTRdata/exomedata/lgs105148.bam
+ERROR:root:Filesize indicates bamfile is empty: /home/xiavan/walnut/lgs105148/13_final_bam/lgs105148.bam
+ERROR:root:Error in check_output() file does not exist: /home/xiavan/Data/lobSTRdata/exomedata/lgs730156.bam
+ERROR:root:Filesize indicates bamfile is empty: /home/xiavan/walnut/lgs730156/13_final_bam/lgs730156.bam
+ERROR:root:Error in check_output() file does not exist: /home/xiavan/Data/lobSTRdata/exomedata/lgs301820.bam
+ERROR:root:Filesize indicates bamfile is empty: /home/xiavan/walnut/lgs301820/13_final_bam/lgs301820.bam
+ERROR:root:Error in check_output() file does not exist: /home/xiavan/Data/lobSTRdata/exomedata/lgs103356.bam
+ERROR:root:Filesize indicates bamfile is empty: /home/xiavan/walnut/lgs103356/13_final_bam/lgs103356.bam
+ERROR:root:Error in check_output() file does not exist: /home/xiavan/Data/lobSTRdata/exomedata/lgs105692.bam
+ERROR:root:Filesize indicates bamfile is empty: /home/xiavan/walnut/lgs105692/13_final_bam/lgs105692.bam
+ERROR:root:Error in check_output() file does not exist: /home/xiavan/Data/lobSTRdata/exomedata/lgs102962.bam
+ERROR:root:Filesize indicates bamfile is empty: /home/xiavan/walnut/lgs102962/13_final_bam/lgs102962.bam
+ERROR:root:Error in check_output() file does not exist: /home/xiavan/Data/lobSTRdata/exomedata/lgs103094.bam
+ERROR:root:Filesize indicates bamfile is empty: /home/xiavan/walnut/lgs103094/13_final_bam/lgs103094.bam
+ERROR:root:Error in check_output() file does not exist: /home/xiavan/Data/lobSTRdata/exomedata/lgs105309.bam
+ERROR:root:Filesize indicates bamfile is empty: /home/xiavan/walnut/lgs105309/13_final_bam/lgs105309.bam
+ERROR:root:Error in check_output() file does not exist: /home/xiavan/Data/lobSTRdata/exomedata/lgs304613.bam
+ERROR:root:Filesize indicates bamfile is empty: /home/xiavan/walnut/lgs304613/13_final_bam/lgs304613.bam
+ERROR:root:Error in check_output() file does not exist: /home/xiavan/Data/lobSTRdata/exomedata/lgs102889.bam
+ERROR:root:Filesize indicates bamfile is empty: /home/xiavan/walnut/lgs102889/13_final_bam/lgs102889.bam
+ERROR:root:Error in check_output() file does not exist: /home/xiavan/Data/lobSTRdata/exomedata/lgs105269.bam
+ERROR:root:Filesize indicates bamfile is empty: /home/xiavan/walnut/lgs105269/13_final_bam/lgs105269.bam
+ERROR:root:Error in check_output() file does not exist: /home/xiavan/Data/lobSTRdata/exomedata/lgs106388.bam
+ERROR:root:Filesize indicates bamfile is empty: /home/xiavan/walnut/lgs106388/13_final_bam/lgs106388.bam
+ERROR:root:Error in check_output() file does not exist: /home/xiavan/Data/lobSTRdata/exomedata/lgs720051.bam
+ERROR:root:Filesize indicates bamfile is empty: /home/xiavan/walnut/lgs720051/13_final_bam/lgs720051.bam
+ERROR:root:Error in check_output() file does not exist: /home/xiavan/Data/lobSTRdata/exomedata/lgs100922.bam
+ERROR:root:Filesize indicates bamfile is empty: /home/xiavan/walnut/lgs100922/13_final_bam/lgs100922.bam
+ERROR:root:Error in check_output() file does not exist: /home/xiavan/Data/lobSTRdata/exomedata/lgs101913.bam
+ERROR:root:Filesize indicates bamfile is empty: /home/xiavan/walnut/lgs101913/13_final_bam/lgs101913.bam
+ERROR:root:Error in check_output() file does not exist: /home/xiavan/Data/lobSTRdata/exomedata/lgs105377.bam
+ERROR:root:Filesize indicates bamfile is empty: /home/xiavan/walnut/lgs105377/13_final_bam/lgs105377.bam
+ERROR:root:Error in check_output() file does not exist: /home/xiavan/Data/lobSTRdata/exomedata/lgs101914.bam
+ERROR:root:Filesize indicates bamfile is empty: /home/xiavan/walnut/lgs101914/13_final_bam/lgs101914.bam
+ERROR:root:Error in check_output() file does not exist: /home/xiavan/Data/lobSTRdata/exomedata/lgs105956.bam
+ERROR:root:Filesize indicates bamfile is empty: /home/xiavan/walnut/lgs105956/13_final_bam/lgs105956.bam
+ERROR:root:Error in check_output() file does not exist: /home/xiavan/Data/lobSTRdata/exomedata/lgs106131.bam
+ERROR:root:Filesize indicates bamfile is empty: /home/xiavan/walnut/lgs106131/13_final_bam/lgs106131.bam
+ERROR:root:Error in check_output() file does not exist: /home/xiavan/Data/lobSTRdata/exomedata/lgs106262.bam
+ERROR:root:Filesize indicates bamfile is empty: /home/xiavan/walnut/lgs106262/13_final_bam/lgs106262.bam
+ERROR:root:Error in check_output() file does not exist: /home/xiavan/Data/lobSTRdata/exomedata/lgs301834.bam
+ERROR:root:Filesize indicates bamfile is empty: /home/xiavan/walnut/lgs301834/13_final_bam/lgs301834.bam
+ERROR:root:Error in check_output() file does not exist: /home/xiavan/Data/lobSTRdata/exomedata/lgs303822.bam
+ERROR:root:Filesize indicates bamfile is empty: /home/xiavan/walnut/lgs303822/13_final_bam/lgs303822.bam
+ERROR:root:Error in check_output() file does not exist: /home/xiavan/Data/lobSTRdata/exomedata/lgs106129.bam
+ERROR:root:Filesize indicates bamfile is empty: /home/xiavan/walnut/lgs106129/13_final_bam/lgs106129.bam
+ERROR:root:Error in check_output() file does not exist: /home/xiavan/Data/lobSTRdata/exomedata/lgs106971.bam
+ERROR:root:Filesize indicates bamfile is empty: /home/xiavan/walnut/lgs106971/13_final_bam/lgs106971.bam
+ERROR:root:Error in check_output() file does not exist: /home/xiavan/Data/lobSTRdata/exomedata/lgs105930.bam
+ERROR:root:Filesize indicates bamfile is empty: /home/xiavan/walnut/lgs105930/13_final_bam/lgs105930.bam
+ERROR:root:Error in check_output() file does not exist: /home/xiavan/Data/lobSTRdata/exomedata/lgs303534.bam
+ERROR:root:Filesize indicates bamfile is empty: /home/xiavan/walnut/lgs303534/13_final_bam/lgs303534.bam
+ERROR:root:Error in check_output() file does not exist: /home/xiavan/Data/lobSTRdata/exomedata/lgs301287.bam
+ERROR:root:Filesize indicates bamfile is empty: /home/xiavan/walnut/lgs301287/13_final_bam/lgs301287.bam
+ERROR:root:Error in check_output() file does not exist: /home/xiavan/Data/lobSTRdata/exomedata/lgs100846.bam
+ERROR:root:Filesize indicates bamfile is empty: /home/xiavan/walnut/lgs100846/13_final_bam/lgs100846.bam
+ERROR:root:Error in check_output() file does not exist: /home/xiavan/Data/lobSTRdata/exomedata/lgs100993.bam
+ERROR:root:Filesize indicates bamfile is empty: /home/xiavan/walnut/lgs100993/13_final_bam/lgs100993.bam
+ERROR:root:Error in check_output() file does not exist: /home/xiavan/Data/lobSTRdata/exomedata/lgs103537.bam
+ERROR:root:Filesize indicates bamfile is empty: /home/xiavan/walnut/lgs103537/13_final_bam/lgs103537.bam
+ERROR:root:Error in check_output() file does not exist: /home/xiavan/Data/lobSTRdata/exomedata/lgs301999.bam
+ERROR:root:Filesize indicates bamfile is empty: /home/xiavan/walnut/lgs301999/13_final_bam/lgs301999.bam
+ERROR:root:Error in check_output() file does not exist: /home/xiavan/Data/lobSTRdata/exomedata/lgs301332.bam
+ERROR:root:Filesize indicates bamfile is empty: /home/xiavan/walnut/lgs301332/13_final_bam/lgs301332.bam
+ERROR:root:Error in check_output() file does not exist: /home/xiavan/Data/lobSTRdata/exomedata/lgs302944.bam
+ERROR:root:Filesize indicates bamfile is empty: /home/xiavan/walnut/lgs302944/13_final_bam/lgs302944.bam
+ERROR:root:Error in check_output() file does not exist: /home/xiavan/Data/lobSTRdata/exomedata/lgs104163.bam
+ERROR:root:Filesize indicates bamfile is empty: /home/xiavan/walnut/lgs104163/13_final_bam/lgs104163.bam
+ERROR:root:Error in check_output() file does not exist: /home/xiavan/Data/lobSTRdata/exomedata/lgs305242.bam
+ERROR:root:Filesize indicates bamfile is empty: /home/xiavan/walnut/lgs305242/13_final_bam/lgs305242.bam
+ERROR:root:Error in check_output() file does not exist: /home/xiavan/Data/lobSTRdata/exomedata/lgs107380.bam
+ERROR:root:Filesize indicates bamfile is empty: /home/xiavan/walnut/lgs107380/13_final_bam/lgs107380.bam
+ERROR:root:Error in check_output() file does not exist: /home/xiavan/Data/lobSTRdata/exomedata/lgs100440.bam
+ERROR:root:Filesize indicates bamfile is empty: /home/xiavan/walnut/lgs100440/13_final_bam/lgs100440.bam
+ERROR:root:Error in check_output() file does not exist: /home/xiavan/Data/lobSTRdata/exomedata/lgs304765.bam
+ERROR:root:Filesize indicates bamfile is empty: /home/xiavan/walnut/lgs304765/13_final_bam/lgs304765.bam
