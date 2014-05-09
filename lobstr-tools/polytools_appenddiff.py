@@ -10,4 +10,3 @@ for line in infile:
     diff=int(line[2])-int(line[1])
     line.append(str(diff))
     print("\t".join(line))
-    

@@ -1,9 +1,9 @@
 #!/usr/bin/env bash 
 
-for file in $(find /home/xiavan/Data/lobSTRdata/exomedata/affected_bams/ -type f)
+for file in $(find /home/xiavan/Data/lobSTRdata/exomedata/affected_bams/unindexed/ -type f)
 do
     #abspath has to be manually entered because im feeling lazy
-    abspath="/home/xiavan/Data/lobSTRdata/exomedata/affected_bams/"
+    abspath="/home/xiavan/Data/lobSTRdata/exomedata/affected_bams/unindexed/"
     NAME=($(basename $file))
     sortprefix="sorted-"
     sortedname=$abspath$sortprefix$NAME
@@ -12,10 +12,10 @@ do
     echo "Sorting completed."
 done
 
-for file in $(find /home/xiavan/Data/lobSTRdata/exomedata/unaffected_bams/ -type f)
+for file in $(find /home/xiavan/Data/lobSTRdata/exomedata/unaffected_bams/unindexed/ -type f)
 do
         #abspath has to be manually entered because im feeling lazy
-        abspath="/home/xiavan/Data/lobSTRdata/exomedata/unaffected_bams/"
+        abspath="/home/xiavan/Data/lobSTRdata/exomedata/unaffected_bams/unindexed/"
         NAME=($(basename $file))
         sortprefix="sorted-"
         sortedname=$abspath$sortprefix$NAME

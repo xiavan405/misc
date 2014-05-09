@@ -14,7 +14,7 @@ def generate_samples(path):
     return(samples_list)
 
 def getreads(chrom, start, end, cutoff, sample):
-    #cutoff = sys.argv[3:
+    #cutoff = sys.argv[3]
     acceptablereads=[]
     for i,infile in enumerate(sample):
         #print("\nReads for sample", i, ": ")

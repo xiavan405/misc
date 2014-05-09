@@ -1,9 +1,9 @@
 #!/usr/bin/env bash 
 
-for file in $(find /home/xiavan/Data/lobSTRdata/exomedata/affected_bams/sorted/ -type f)
+for file in $(find /home/xiavan/Data/lobSTRdata/exomedata/affected_bams/unindexed/ -type f)
 do
     #abspath has to be manually entered because im feeling lazy
-    abspath="/home/xiavan/Data/lobSTRdata/exomedata/affected_bams/sorted/"
+    abspath="/home/xiavan/Data/lobSTRdata/exomedata/affected_bams/unindexed/"
     NAME=($(basename $file))
     outsuffix=".bai"
     outname=$abspath$NAME$outsuffix
@@ -12,10 +12,10 @@ do
     echo "Indexing completed."
 done
 
-for file in $(find /home/xiavan/Data/lobSTRdata/exomedata/unaffected_bams/sorted/ -type f)
+for file in $(find /home/xiavan/Data/lobSTRdata/exomedata/unaffected_bams/unindexed/ -type f)
 do
     #abspath has to be manually entered because im feeling lazy
-    abspath="/home/xiavan/Data/lobSTRdata/exomedata/unaffected_bams/sorted/"
+    abspath="/home/xiavan/Data/lobSTRdata/exomedata/unaffected_bams/unindexed/"
     NAME=($(basename $file))
     outsuffix=".bai"
     outname=$abspath$NAME$outsuffix
