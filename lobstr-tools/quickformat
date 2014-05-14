@@ -1,0 +1,9 @@
+#!/usr/bin/env python
+
+infile = open("/home/xiavan/Projects/misc/lobstr-tools/processed_exome_bam_paths_051314.txt",'r')
+
+for entry in infile:
+    entry = entry.split("/")   
+    name = entry[-1]
+    name = name.split(".")
+    print(name[0])

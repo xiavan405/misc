@@ -6,6 +6,7 @@
 import argparse
 import matplotlib.pyplot as plt
 import numpy as np
+#for using stdev
 
 parser = argparse.ArgumentParser()
 group = parser.add_mutually_exclusive_group()
@@ -99,6 +100,20 @@ def scatter_plot(input_file):
     plt.scatter(x,y1)
     plt.scatter(x,y2)
     plt.show()
+
+def better_plot(input_file):
+    infile = open(input_file,'r')
+    y1 = []
+    y2 = []
+    x = []
+    for i,entry in enumerate(infile):
+        entry = entry.split(',')
+        entry[-1] = entry[-1].rstrip()
+        current_1 = float(entry[3])
+        current_2 = float(entry[-1])
+        y1.append(float(current_1))
+        y2.append(float(current_2))
+        
 
 def main():
     if args.basic:
